@@ -35,7 +35,7 @@ const reddit = {
       return authCode;
 
     } else {
-      window.location = `https://www.reddit.com/api/v1/authorize?client_id=-r3GwuNRL_NU8PIN8KGJ6g&response_type=code&state=tom&redirect_uri=http://localhost:3000&duration=permanent&scope=identity read vote history mysubreddits`;
+      window.location = `https://www.reddit.com/api/v1/authorize?client_id=-r3GwuNRL_NU8PIN8KGJ6g&response_type=code&state=tom&redirect_uri=https://gammagrey.github.io/robotstop/&duration=permanent&scope=identity read vote history mysubreddits`;
     };
   },
 
@@ -50,7 +50,7 @@ const reddit = {
             "Authorization": `Basic ${APIKey}`,
             "Content-Type": "application/x-www-form-urlencoded",
           },
-          body: `grant_type=authorization_code&code=${authCode}&redirect_uri=http://localhost:3000` // replace redirect_uri with app URI
+          body: `grant_type=authorization_code&code=${authCode}&redirect_uri=https://gammagrey.github.io/robotstop/` // replace redirect_uri with app URI
         });
         
         if (response.ok) {
