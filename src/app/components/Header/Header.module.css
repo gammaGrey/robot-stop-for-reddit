@@ -1,0 +1,26 @@
+#headerBar {
+  background-color: var(--colour4);
+  width: 100%;
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#headerFlex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#menuButton {
+  aspect-ratio: 1;
+  border-radius: 25%;
+  border: solid 2px #ff4500;
+}
+
+#userIcon {
+  position: relative;
+  width: 1.5rem;
+  margin: 3px;
+  border-radius: 50%;
+  border: solid 2px var(--colour1);
+}

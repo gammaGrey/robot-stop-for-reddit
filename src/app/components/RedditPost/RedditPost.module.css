@@ -1,0 +1,153 @@
+@keyframes loadPost {
+  0%, 1% {
+    rotate: 0deg;
+  }
+
+  50% {
+    filter: blur(2.5px);
+  }
+
+  100% {
+    rotate: 360deg;
+  }
+}
+
+@keyframes noCommentsCry {
+  0%,
+  100% {
+    content: "😢";
+  }
+  50% {
+    content: "😭";
+  }
+}
+
+@keyframes loadComments {
+  25% {
+    font-size: 1rem;
+    aspect-ratio: 1;
+    width: 30px;
+    color: #deeeec40;
+    rotate: 24deg;
+    border-style: dotted;
+    border-radius: 5rem;
+  }
+  50% {
+    rotate: 48deg;
+    color: #deeeec50;
+    border-radius: 2.5rem;
+    background-color: #07151c;
+    border: .25rem dashed var(--colour2);
+    font-weight: 400;
+  }
+  75%,
+  80% {
+    rotate: 92deg;
+    font-size: 1rem;
+    font-weight: 600;
+    aspect-ratio: 1;
+    width: 30px;
+    color: #07151c;
+    border: solid #fff .25rem;
+    border-radius: .5rem;
+    background-color: rgb(255, 199, 43);
+  }
+  100% {
+    color: #deeeec;
+    rotate: 0deg;
+    aspect-ratio: 4.533;
+  }
+}
+
+@keyframes loadDots {
+  1% {
+    content: " ."
+  }
+  50% {
+    content: " .."
+  }
+  75% {
+    content: " ..."
+  }
+  100% {
+    content: ""
+  }
+}
+
+.postContainer {
+  width: 33rem;
+}
+
+.loadCommentsButton {
+  display: block;
+  position: relative;
+  background-color: #07151c;
+  color: var(--colour1);
+  text-align: center;
+  padding: .75rem;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.5rem;
+  border-radius: 1rem;
+  border: solid var(--colour2) .25rem;
+  cursor: pointer;
+  user-select: none;
+  transition: all .16s linear;
+
+  &:hover {
+    background-color: #0c2635;
+  }
+
+  &.none {
+    font-size: 1rem;
+  }
+
+  &:hover #emoji::after {
+    content: "";
+    animation: noCommentsCry .7s ease-out 0s infinite normal forwards;
+}
+}
+
+svg {
+  padding: .5rem;
+  margin: auto;
+  overflow: visible;
+  position: inherit;
+  display: flex;
+
+  & circle {
+    transform-origin: 54px 54px;
+  }
+}
+
+.postLoading {
+  padding: .25rem;
+  margin: auto;
+  animation: loadPost .9s cubic-bezier(0.71, 0.96, 0.03, 0.51) 0s infinite normal forwards;
+}
+
+.backwards {
+  transform-origin: 54px 54px;
+  animation-direction: reverse;
+  animation-duration: .6s;
+}
+
+#buttons {
+  margin: 0 auto;
+}
+
+.animatedLoad {
+  animation: loadComments 1.5s cubic-bezier(.3,1.3,.66,1.08) 0s 1 normal forwards;
+
+    &::after{
+      position: absolute;
+      content: "";
+      animation: loadDots .5s linear 0.4s 3 normal forwards;
+      animation-fill-mode: both;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+  .postContainer {
+    width: 90%;
+  }
+}

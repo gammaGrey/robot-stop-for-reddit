@@ -1,0 +1,55 @@
+#subredditFilterForm {
+  background-color: #07151cc8;
+  padding: .625rem;
+  position: absolute;
+  display: flex;
+  right: 0;
+  justify-content: space-around;
+  gap: .5rem;
+  align-items: flex-end;
+  z-index: 1;
+  border: .125rem solid #2e2e2e;
+  border-radius: .5rem;
+  
+  & * {
+    font-family: "Montserrat", sans-serif;
+  }
+
+  & form {
+    display: flex;
+    flex-direction: column;
+    gap: .25rem
+  }
+}
+
+#sortList {
+  color: var(--colour2);
+}
+
+.button {
+  font-family: "Montserrat", sans-serif;
+  color: var(--colour2);
+  background-color: #07151cc8;
+  border: .125rem solid #2e2e2e;
+  border-radius: .25rem;
+  padding: .125rem;
+  cursor: pointer;
+}
+
+#closeButton {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 0 .375rem;
+  font-size: 125%;
+  border-width: .1875rem;
+  border-radius: 50%;
+}
+
+@media only screen and (max-width: 800px) {
+  #subredditFilterForm {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: .25rem;
+  }
+}

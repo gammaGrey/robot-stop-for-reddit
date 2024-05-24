@@ -1,0 +1,93 @@
+#blackout {
+  position: absolute;
+  background-color: #000;
+  width: 100dvw;
+  height: 100dvh;
+  z-index: 1;
+}
+
+#welcomeCard {
+  font-family: "Montserrat", sans-serif;
+  font-size: 75%;
+  line-height: 1.2;
+  padding: 1rem 1.5rem;
+  width: 50%;
+  position: relative;
+  margin: 10% auto;
+  background-color: #07151c;
+  border: .3125rem solid #657175;
+  border-radius: 1.75rem;
+
+  & h2 {
+    text-align: center;
+    margin-bottom: .25rem;
+  }
+
+  & h3 {
+    margin-top: .75rem;
+  }
+
+  & p {
+    margin-top: .33rem;
+  }
+
+  & ul {
+    margin-left: 1rem;
+  }
+
+  & button {
+    padding: .33rem;
+    font-family: "Montserrat", sans-serif;
+    background-color: var(--colour1);
+    border: .0625rem solid var(--colour2);
+    border-radius: .33rem;
+    text-wrap: balance;
+    transition: all .215s ease-in-out;
+
+    &.decline {
+      border-color: #1531ba;
+    }
+
+    &:hover {
+      cursor: pointer;
+      background-color: #fffbf8;
+    }
+  }
+}
+
+#repoLink {
+  color: var(--colour2);
+  text-decoration: underline;
+
+  &:hover {
+    color: #ff4d4d;
+  }
+}
+
+#buttonFlex {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-around;
+  gap: 1rem;
+}
+
+#tldr {
+  font-size: 80%;
+}
+
+.logo {
+  font-weight: 600;
+  color: var(--colour2);
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.stop {
+  background-color: var(--colour2);
+  color: var(--colour1);
+}
+
+@media only screen and (max-width: 540px) {
+  #welcomeCard {
+    width: 75%;
+  }
+}

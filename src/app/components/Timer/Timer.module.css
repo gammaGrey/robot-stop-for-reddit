@@ -1,0 +1,20 @@
+#timer {
+  padding-top: .3125rem;
+  font-family: "Montserrat", sans-serif;
+  
+  & #time {
+    animation: timerColour 1800s linear 0s 1 normal forwards;
+  }
+}
+
+@keyframes timerColour {
+  0% {
+    color: #fff
+  }
+  50% {
+    color: #ff0
+  }
+  100% {
+    color: #f00;
+  }
+}

@@ -1,0 +1,33 @@
+#appName {
+  font-size: 1.6rem;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  color: var(--colour2);
+  padding-left: 1.25rem;
+}
+
+#stop {
+  font-size: 1.6rem;
+
+  background-color: var(--colour2);
+  color: var(--colour1);
+}
+
+#header {
+  display: flex;
+  justify-content: space-between;
+  align-items: self-start;
+}
+
+#userIcon {
+  position: relative;
+  top: .5rem;
+  width: 2rem;
+  border-radius: 50%;
+  border: solid 2px white;
+}
+
+.swiper {
+  text-decoration: none;
+  user-select: none;
+}
