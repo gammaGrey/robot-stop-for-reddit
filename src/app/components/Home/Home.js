@@ -1,4 +1,3 @@
-import { Outlet } from "react-router-dom";
 import { useSelector } from "react-redux";
 import SubredditList from "../SubredditList/SubredditList";
 import { menuSelector } from "../../features/Menu/MenuSlice";
@@ -17,7 +16,6 @@ export default function Home () {
         <Timer />
         <SubredditList />
       </div>
-      <Outlet />
     </>
   );
 };

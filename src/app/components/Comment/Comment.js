@@ -1,15 +1,14 @@
 import { useDispatch, useSelector } from "react-redux";
-import { Link, Outlet, useNavigate } from "react-router-dom";
 import { /*commentVote,*/ commentsSelector, moreComments, nextComment } from "../../features/Comments/CommentsSlice"
 import { changeView, postSelector } from "../../features/Post/PostSlice";
 import swipe from "../../../utilities/swiper"
 import styles from "./Comment.module.css"
+import Reply from "../Reply/Reply";
 
 export default function Comment () {
   const { commentList, comment, reply, isLoading } = useSelector(commentsSelector);
   const post = useSelector(postSelector);
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   
   function handleNextComment() {
     if (comment.index < commentList.length - 2) {
@@ -20,7 +19,7 @@ export default function Comment () {
   }
 
   /*
-  const handleVote = (direction) => {
+  function handleVote(direction) {
     dispatch(commentVote({
       direction,
       id: `t1_${comment.id}`
@@ -35,7 +34,6 @@ export default function Comment () {
   function handleCloseReply() {
     if (post.view !== "comments") {
       dispatch(changeView("comments"));
-      navigate("");
     }
   }
 
@@ -45,7 +43,7 @@ export default function Comment () {
       data-view={post.view}
       id={styles.topCommentContainer}
       onMouseDown={post.view === "comments" && post.view !== "reply"
-        ? () => swipe(styles.topCommentContainer, handleNextComment, /*handleVote*/)
+        ? () => swipe(styles.topCommentContainer, handleNextComment/*, handleVote*/)
         : handleCloseReply}
     >
       { post.view === "reply"
@@ -59,15 +57,9 @@ export default function Comment () {
           </> }
       
       { post.view === "comments" && reply.list !== null  &&
-        <Link
-          id={styles.repliesLink}
-          to="reply"
-          onClick={handleOpenReply}
-        >
-          <button>Open { reply.list.length } { reply.list.length > 1 ? "Replies" : "Reply" }</button>
-        </Link> }
+        <button id={styles.repliesLink} onClick={handleOpenReply}>Open { reply.list.length } { reply.list.length > 1 ? "Replies" : "Reply" }</button> }
     </div>
-    {/* Reply component */}
-    <Outlet />
+
+    <Reply />
   </>)
 };

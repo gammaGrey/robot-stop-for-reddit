@@ -1,7 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 import { UserLoginSelector, login } from "../../features/UserLogin/UserLoginSlice";
 import styles from "./Header.module.css";
-// import { useEffect } from "react";
 
 export default function Header () {
   const { user } = useSelector(UserLoginSelector);
@@ -13,8 +12,6 @@ export default function Header () {
     }
   };
 
-  // useEffect(handleLogin, []);
-
   return (
     <header id={styles.headerBar}>
       <button id={styles.menuButton}>menu</button>
@@ -24,7 +21,7 @@ export default function Header () {
           { user.username
             ? <>
               <span>{user.username}</span>
-              <img id={styles.userIcon} src={user.icon}/>
+              <img alt="user icon" id={styles.userIcon} src={user.icon}/>
               </>
             : <button onClick={handleLogin}>
                 { sessionStorage.getItem("authCode")

@@ -20,30 +20,33 @@
 */
 
 import "./App.css";
-import { RouterProvider, Route, createBrowserRouter, createRoutesFromElements } from "react-router-dom";
+// import { RouterProvider, Route, createBrowserRouter, createRoutesFromElements } from "react-router-dom";
 import Home from "./app/components/Home/Home";
 import Post from "./app/components//Post/Post";
-import RedditPost from "./app/components/RedditPost/RedditPost";
-import CommentsSection from "./app/components/CommentsSection/CommentsSection";
-import Comment from "./app/components/Comment/Comment";
-import Reply from "./app/components/Reply/Reply";
+// import RedditPost from "./app/components/RedditPost/RedditPost";
+// import CommentsSection from "./app/components/CommentsSection/CommentsSection";
+// import Comment from "./app/components/Comment/Comment";
+// import Reply from "./app/components/Reply/Reply";
 
-const router = createBrowserRouter(createRoutesFromElements(
-  <Route path="/" element={<Home /> }>
-    <Route path="" element={<Post />}>
-      <Route path="post" element={<RedditPost />}>
-        <Route path="comments" element={<CommentsSection />}>
-          <Route path="" element={<Comment />}>
-            <Route path="reply" element={<Reply />}/>
-          </Route>
-        </Route>
-      </Route>
-    </Route>
-  </Route>
-));
+// const router = createBrowserRouter(createRoutesFromElements(
+//   <Route path="/" element={<Home /> }>
+//     <Route path="" element={<Post />}>
+//       <Route path="post" element={<RedditPost />}>
+//         <Route path="comments" element={<CommentsSection />}>
+//           <Route path="" element={<Comment />}>
+//             <Route path="reply" element={<Reply />}/>
+//           </Route>
+//         </Route>
+//       </Route>
+//     </Route>
+//   </Route>
+// ));
 
 export default function App() {
   return (
-    <RouterProvider router={router} />
+    <>
+    <Home />
+    <Post />
+    </>
   );
 }

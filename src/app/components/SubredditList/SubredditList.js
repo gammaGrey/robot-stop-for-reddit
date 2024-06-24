@@ -1,7 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { getPage, filter, sort, changeView } from "../../features/Post/PostSlice";
 import { menuSelector, toggleFilters } from "../../features/Menu/MenuSlice";
-import { useNavigate } from "react-router-dom";
 import styles from "./SubredditList.module.css";
 // import { UserLoginSelector, getSubreddits } from "../../features/UserLogin/UserLoginSlice";
 
@@ -9,7 +8,6 @@ export default function SubredditList () {
   // const userLogin = useSelector(UserLoginSelector);
   const { toggle } = useSelector(menuSelector);
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   // const handleGetSubreddits = () => {
   //   if (!userLogin.subreddits.list || userLogin.subreddits.list[0] === "Please login!") {
@@ -23,25 +21,23 @@ export default function SubredditList () {
     dispatch(toggleFilters());
   }
 
-  const handleFilter = (e) => {
+  function handleFilter(e) {
     if (e.target.value === "Front Page") {
       dispatch(filter(""));
     } else {
       dispatch(filter(e.target.value));
     }
-  };
+  }
   
   function handleGetFilteredPage () {
     dispatch(getPage());
     dispatch(changeView("post"));
-    navigate("post");
   }
 
-  const handleSort = (e) => {
+  function handleSort(e) {
     dispatch(sort(e.target.value));
     dispatch(getPage());
-    navigate("post");
-  };
+  }
 
   return (<>
     { toggle.filter

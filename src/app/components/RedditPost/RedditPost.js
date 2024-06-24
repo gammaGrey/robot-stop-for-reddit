@@ -1,9 +1,9 @@
 import { useDispatch, useSelector } from "react-redux";
-import { Link, Outlet } from "react-router-dom";
 import { postSelector,  changeView } from "../../features/Post/PostSlice";
 import { commentsSelector, loadComments } from "../../features/Comments/CommentsSlice";
 import PostContent from "../PostContent/PostContent";
 import styles from "./RedditPost.module.css";
+import CommentsSection from "../CommentsSection/CommentsSection";
 
 export default function RedditPost () {
   const post = useSelector(postSelector);
@@ -56,9 +56,8 @@ export default function RedditPost () {
         No comments <span id={styles.emoji}></span>
       </span>
     : (comments.comment.body && post.view === "comments") || post.view === "reply"
-      ? <Outlet /> //CommentsSection component
-      : <Link
-          to="comments"
+      ? <CommentsSection />
+      : <div
           className={ comments.isLoading
             ? `${styles.loadCommentsButton} ${styles.animatedLoad}`
             : styles.loadCommentsButton }
@@ -85,6 +84,6 @@ export default function RedditPost () {
             : post.link.numComments >= 1
               ? `${post.link.numComments} 💬`
               : "1 💬" }
-        </Link> }
+        </div> }
   </>)
 };

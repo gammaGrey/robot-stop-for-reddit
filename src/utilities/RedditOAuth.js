@@ -3,15 +3,15 @@ Everything here works if you have an API key, but you're rate-limited to 10 requ
 
 /** add this to the <head> of public/index.html
  <script>
-  if (sessionStorage.getItem("authCode")) {
-    sessionStorage.removeItem("authCode");
-    
-  } else if (location.hash) {
-    let authCode = location.toString().match(/(?<=code=)([^#]*)/)[0];
-    sessionStorage.setItem("authCode", authCode);
-  }
-    </script>
- */
+if (sessionStorage.getItem("authCode")) {
+sessionStorage.removeItem("authCode");
+
+} else if (location.hash) {
+let authCode = location.toString().match(/(?<=code=)([^#]*)/)[0];
+sessionStorage.setItem("authCode", authCode);
+}
+</script>
+*/
 
 const APIKey = process.env.REACT_APP_API_KEY; //nothing here
 let authCode;
@@ -205,7 +205,7 @@ const reddit = {
 
         const comments = jsonResponse[1].data.children.map(comment => {
           if (comment.data.stickied) {
-            return;
+            return null;
 
           } else if (comment.kind === "more") {
             return {
@@ -242,20 +242,25 @@ const reddit = {
                         numOmitted: reply_2.data.count,
                         idArray: reply_2.data.children
                       }
-                    };
-                    if( i < 6 && reply_2) {
+                    } else if( i < 6 && reply_2) {
                       return {
                         kind: "t1",
                         body: reply_2.data.body,
                         author: reply_2.data.author,
                         id: reply_2.data.id
                       };
+                    } else {
+                      return null;
                     }})
                     : null,
                   };
+                } else {
+                  return null;
                 }})
                 : null,
             };
+          } else {
+            return null;
           };
         }).filter(comment => comment ? true : false);
         console.log("comments:");
@@ -289,9 +294,8 @@ const reddit = {
         console.log(jsonResponse);
         const comments = jsonResponse.json.data.things.map(comment => {
           if (comment.data.stickied) {
-            return;
-          }
-          if (comment.kind === "more") {
+            return null;
+          } else if (comment.kind === "more") {
             return {
               kind: "more",
               numOmitted: comment.data.count,
@@ -313,8 +317,7 @@ const reddit = {
                     numOmitted: reply.data.count,
                     idArray: reply.data.children
                   }
-                };
-                if( i < 6 ) {
+                } else if( i < 6 ) {
                   return {
                   kind: "t1",
                   body: reply.data.body,
@@ -327,20 +330,25 @@ const reddit = {
                         numOmitted: reply_2.data.count,
                         idArray: reply_2.data.children
                       }
-                    };
-                    if( i < 6 && reply_2) {
+                    } else if( i < 6 && reply_2) {
                       return {
                         kind: "t1",
                         body: reply_2.data.body,
                         author: reply_2.data.author,
                         id: reply_2.data.id
                       };
+                    } else {
+                      return null;
                     }})
                     : null,
                   };
+                } else {
+                  return null;
                 }})
                 : null,
             };
+          } else {
+            return null;
           };
         }).filter(comment => comment ? true : false);
         return comments;

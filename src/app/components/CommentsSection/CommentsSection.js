@@ -1,10 +1,10 @@
 import styles from "./CommentsSection.module.css";
-import { Outlet } from "react-router-dom";
+import Comment from "../Comment/Comment";
 
 export default function CommentsSection () {
   return (
     <section id={styles.commentsSection}>
-      <Outlet /> {/*Comment component*/}
+      <Comment />
     </section>
   )
 };

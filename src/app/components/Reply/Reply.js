@@ -4,7 +4,7 @@ import { postSelector } from "../../features/Post/PostSlice";
 import styles from "./Reply.module.css";
 
 export default function Reply () {
-  const comments = useSelector(commentsSelector);
+  const { reply } = useSelector(commentsSelector);
   const { view } = useSelector(postSelector);
 
   return (
@@ -13,12 +13,17 @@ export default function Reply () {
         <span>Replies:</span>
       }
       { view === "reply" &&
-      comments.reply.list.map((reply, i) => {
+      reply.list.map((reply, i) => {
         if (reply.kind === "more") {
+          const childCommentsAmount = reply.numOmitted - reply.idArray.length;
+          const childComments = childCommentsAmount > 0 ? childCommentsAmount + " child comment" : null;
+          const plural = childCommentsAmount > 1 ? `s` : "";
+          const omittedChildComments = childCommentsAmount > 0 ? `+ ${childComments + plural}` : null;
+
           return (
             <div key={i}>
               <span className={styles.loadMore}>
-                {reply.idArray.length} more replies (+{reply.numOmitted - reply.idArray.length} child comments)
+                {reply.idArray.length} more repl{reply.idArray.length > 1 ? "ies" : "y"} {omittedChildComments}
               </span>
             </div>
           )
@@ -32,7 +37,7 @@ export default function Reply () {
               {reply.body}
             </p>
             <span id={styles.numReplies}>
-              {reply.replies && Object.values(reply.replies[reply.replies.length - 1]).includes("more")
+              { reply.replies && Object.values(reply.replies[reply.replies.length - 1]).includes("more")
                 // total replies, including replies omitted due to limit in API request 
                 ? reply.replies.length + reply.replies[reply.replies.length - 1].numOmitted - 1
                 : reply.replies // check if the current reply has more replies
