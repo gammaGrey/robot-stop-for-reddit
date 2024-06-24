@@ -1,0 +1,15 @@
+{
+  "short_name": "Robot Stop",
+  "name": "Robot Stop swiper for Reddit",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "32x32",
+      "type": "image/x-icon"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#deeeec",
+  "background_color": "#000000"
+}
