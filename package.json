@@ -1,7 +1,7 @@
 {
   "name": "robotstop-swiper-for-reddit",
   "version": "1.0.0",
-  "homepage": "https://gammagrey.github.io/robotstop",
+  "homepage": "https://gammagrey.github.io/robot-stop-for-reddit",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.3",
