@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/robotstop/static/css/main.f524c998.css",
-    "main.js": "/robotstop/static/js/main.66e7b4b7.js",
-    "index.html": "/robotstop/index.html",
-    "main.f524c998.css.map": "/robotstop/static/css/main.f524c998.css.map",
-    "main.66e7b4b7.js.map": "/robotstop/static/js/main.66e7b4b7.js.map"
+    "main.css": "/robot-stop-for-reddit/static/css/main.f524c998.css",
+    "main.js": "/robot-stop-for-reddit/static/js/main.f3a0acbd.js",
+    "index.html": "/robot-stop-for-reddit/index.html",
+    "main.f524c998.css.map": "/robot-stop-for-reddit/static/css/main.f524c998.css.map",
+    "main.f3a0acbd.js.map": "/robot-stop-for-reddit/static/js/main.f3a0acbd.js.map"
   },
   "entrypoints": [
     "static/css/main.f524c998.css",
-    "static/js/main.66e7b4b7.js"
+    "static/js/main.f3a0acbd.js"
   ]
 }
